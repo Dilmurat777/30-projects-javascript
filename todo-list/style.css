@@ -34,6 +34,11 @@
 	margin-left: 10px;
 }
 
+#list-container {
+	overflow-y:scroll;
+	max-height: 400px;
+}
+
 .row {
 	display: flex;
 	align-items: center;
@@ -110,8 +115,4 @@ ul li span {
 
 ul li span:hover {
 	background: #edeef0;
-}
-
-.checked {
-	text-decoration: line-through;
 }
