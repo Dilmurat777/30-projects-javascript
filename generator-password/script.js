@@ -16,7 +16,6 @@ function createPassword() {
   password += symbol[Math.floor(Math.random() * symbol.length)];
   while (length > password.length) {
     password += allChars[Math.floor(Math.random() * allChars.length)];
-    console.log(allChars);
   }
   passwordBox.value = password;
 }
@@ -29,7 +28,7 @@ function copyPassword() {
       alert('Пароль скопирован в буфер обмена!');
     })
     .catch((error) => {
-      console.error('Ошибка копирования: ', err);
+      console.error('Ошибка копирования: ', error);
       document.execCommand('copy');
       alert('Пароль скопирован (старым методом).');
     });
