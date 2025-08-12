@@ -55,7 +55,7 @@ function showQuestion() {
   resetState();
   let currentQuestion = questions[currentQuestionIndex];
   let questionNo = currentQuestionIndex + 1;
-  questionElement.innerHTML = questionNo + '. ' + currentQuestion.question; // Исправлено здесь
+  questionElement.innerHTML = questionNo + '. ' + currentQuestion.question; 
 
   currentQuestion.answer.forEach((answer) => {
     const button = document.createElement('button');
