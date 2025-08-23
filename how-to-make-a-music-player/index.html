@@ -4,12 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>How To Make A Music Player</title>
   </head>
   <body>
-
     <div class="container">
       <div class="music-player">
+        <nav>
+          <div class="circle">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
+          <div class="circle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </nav>
+        <img src="images/piano.jpg" alt="" class="song-img">
+        <h1>Modern Talking</h1>
+        <p>Heaven will know</p>
+
+        <audio id="player">
+          <source src="mp3/Modern Talking - Heaven will know.mp3" type="audio/mpeg">
+        </audio>
+
+        <input type="range" value="0" id="progress">
+
+        <div class="controls">
+          <div>
+            <i class="fa-solid fa-backward-fast"></i>
+          </div>
+          <div>
+            <i class="fa-solid fa-play" id="playIcon" onclick="playPause()"></i>
+          </div>
+          <div>
+            <i class="fa-solid fa-forward-fast"></i>
+          </div>
+        </div>
 
       </div>
     </div>
