@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subscription Form With Google Sheets</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Добавляем стили для скрытия и отображения сообщения */
+      .hero span {
+        display: none;
+        margin-top: 15px;
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <h3>Coming Soon!</h3>
+      <h1>
+        Our Brand New <br />
+        Website Is on the Way
+      </h1>
+      <p>Subscribe for more details.</p>
+      <form name="submit-to-google-sheet">
+        <input type="email" name="Email" placeholder="Your Email id" required />
+        <button type="submit">
+          <img src="send-icon.png" alt="" width="30px" />
+        </button>
+      </form>
+      <span id="msg">Thank You For Subscribing!</span>
+    </div>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwg-qZE0hzOrZ2AH-g4SWvyX7MnbWloyVPyrUX0yFJcGuTfnkpHO057dEBl9bRtZoF2/exec';
+      const form = document.forms['submit-to-google-sheet'];
+      const msg = document.getElementById('msg'); // Получаем элемент по id
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => {
+            msg.style.display = 'block'; // Показываем сообщение
+            setTimeout(() => {
+              msg.style.display = 'none'; // Скрываем через 5 секунд
+            }, 5000);
+            form.reset(); // Очищаем форму
+            console.log('Success!', response);
+          })
+          .catch((error) => console.error('Error!', error.message));
+      });
+    </script>
+  </body>
+</html>
