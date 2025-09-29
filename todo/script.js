@@ -1,0 +1,40 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const taskInput = document.getElementById('task-input');
+  const addTaskBtn = document.getElementById('add-task-btn');
+	const taskList = document.getElementById('task-list');
+	const noTasks = document.querySelector('.no-tasks');
+
+	const toggleEmptyState = () => {
+		noTasks.style.display = taskList.children.length === 0 ? 'block' : 'none';
+	}
+
+	const addTask = (e) => {
+	  e.preventDefault()
+    const taskText = taskInput.value.trim();
+    if (!taskText) {
+      return;
+    }
+		const li = document.createElement('li');
+		li.innerHTML = `
+		<input type="checkbox" class='checkbox' />
+		        <span>${taskText}</span>  
+            <div class="task-buttons">
+              <button class="edit-btn"><i class="fa-solid fa-pen"></i></button>
+              <button class="delete-btn"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+		
+		`
+
+
+
+    taskList.appendChild(li);
+    taskInput.value = '';
+	toggleEmptyState()
+  };
+  addTaskBtn.addEventListener('click', addTask);
+  taskInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      addTask();
+    }
+  });
+});
