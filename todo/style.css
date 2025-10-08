@@ -45,6 +45,55 @@ body {
   font-size: 2rem;
 }
 
+.stat-container {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.details {
+  width: 100%;
+}
+
+.details h3 {
+  color: #fff;
+}
+
+#progressbar {
+  width: 100%;
+  height: 7px;
+  background: rgba(255, 194, 209, 0.3);
+  border-radius: 20px;
+  position: relative;
+  margin-top: 15px;
+}
+
+#progress {
+  width: 0;
+  height: 100%;
+  background: #ff6191;
+  border-radius: 20px;
+  transition: width 0.3s ease-in-out;
+}
+
+#numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: #ff6191;
+  border: 2px solid rgba(255, 194, 209, 0.3);
+  font-weight: bold;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
 .input-area {
    display: flex;
   justify-content: space-between;
@@ -89,6 +138,7 @@ body {
 }
 
 .todo-container {
+  /* width: 100%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,4 +198,70 @@ body {
   flex: 1;
   margin-left: 10px;
   word-wrap: break-word;
+}
+
+#task-list li.completed span {
+  text-decoration: 2px line-through #000;
+  color: #000;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 10px;
+  margin-right: auto;
+}
+.task-buttons button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-right: auto;
+  background: rgba(255, 194, 209, 0.3);
+  border: none;
+  border-radius: 50%; 
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.task-buttons button:hover {
+  transform: scale(1.1);
+}
+
+.task-buttons .edit-btn {
+  background: #ffbf00;
+}
+.task-buttons .delete-btn {
+  background: #ff6f91;
+}
+
+/* media queries */
+
+@media screen and (max-width: 600px) {
+  .container {
+    margin: 0 20px;
+    padding: 0 10px;
+  }
+
+  .todo-app {
+    padding: 1.5rem;
+    gap: 20px;
+  }
+
+  #number {
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  .input-area input {
+    font-size: 1rem;
+  }
+
+  .task-list li {
+    font-size: 1rem;
+  }
 }
